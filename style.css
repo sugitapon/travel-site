@@ -1,0 +1,432 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+/* #map {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+ */
+ #map {
+    float: left;
+    /* height: 75%; */
+    height: 100%;
+    width: 100%;
+  }
+  /* #pano {
+    float: left;
+    height: 25%;
+    width: 100%;
+  } */
+  
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    outline:0;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+      font-size: 100%;
+    text-size-adjust: 100%
+  }
+  
+  .box {
+    position: absolute;
+    text-align: center;
+    font-family: "Meiryo","Roboto", "Arial", sans-serif;
+    margin-top: 30px;
+    font-size: 15px;
+    z-index: 5;
+    background: transparent;
+  
+    /* border: #e5e5e5 1px solid; */
+    /* vertical-align: top;   */
+    height: 25px;
+    margin-left: 5px;
+  }
+  
+  /* for the select option of the course*/
+  .before {
+    margin-top: 10px;
+    float: left;
+    margin-right: 3px;
+    margin-left: 3px;
+    vertical-align: center;  
+    text-align: center;
+    color: rgb(173, 32, 109);
+  }
+  .after {
+    margin-top: 10px;
+    margin-right: 3px;
+    font-size: 14px;
+    clear: both;
+    vertical-align: center;  
+    text-align: center;
+  }
+  
+  /***************************************************/
+  /* for the color, pleaes check the below link. */
+  /*https://colorhunt.co/palette/180361*/
+  /***************************************************/
+  
+  :root {
+    --cl-adpop-background: #00000000;
+    --cl-adpop-border: #00000000;
+    --cl-adpop-color: #00000000;
+    --lineheight-adpop: 0px;
+    --width-adpop: 100px;
+    --height-hadpop: 200px;
+  
+    --height-hadpop-100: 100px;
+  
+    --fontsize-adpoph1: 15px;
+    --lineheight-adpoph1: 5px;
+    --textalign-adpoph1: center;
+    --textweight-adpoph1: bold;
+  
+    --fontsize-adpopp: 10px;
+    --lineheight-adpopp: 10px;
+    --textalign-adpopp: center;
+    --fontweight-adpopp: lighter;
+  
+    --fontsize-lastmeter: 10px;
+    --lineheight-lastmeter: 0px;
+    --textalign-lastmeter: center;
+    --fontweight-lastmeter: lighter;
+  
+    --cl-gmstyleiw-border: #00000000;
+    --cl-gmstyleiw-background: #00000000;
+  
+    --cl-gmstyleiwd-border: #00000000;
+    --cl-gmstyleiwd-background: #00000000;
+    --margin-gmstyleiwd: 10px;
+    
+    --cl-gmuihovereffect-border:#00000000;
+    --cl-gmuihovereffect-background:#00000000;
+  
+    --cl-gmstyleiwtafter-background:#00000000;
+  
+    --border-px-adpop: 2px;
+    --border-px-gmstyleiw: 3px;
+    --border-px-gmstyleiwd: 1px;
+    --border-px-gmuihovereffect: 1px;
+  
+    --width-gmuihovereffect: 25%;
+    --height-gmuihovereffect: 12.5%;
+  
+    --width-adpopimg: 100px;
+    --height-adpopimg: 100px;
+  
+    --textalign-imgposition: center;
+  
+  }
+  
+  /*var(--color)*/
+  
+  .adPop {
+    background-color: var(--cl-adpop-background);
+    /* border: 2px solid var(--cl-adpop-border); */
+    border: var(--border-px-adpop) solid var(--cl-adpop-border);
+    color: var(--cl-adpop-color);
+    line-height: var(--lineheight-adpop);
+    /* width: 100px;
+    height: 200px; */
+    width: var(--width-adpop);
+    height: var(--height-hadpop);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .adPop h1 {
+    font-size: var(--fontsize-adpoph1);
+    line-height: var(--lineheight-adpoph1);
+    text-align: var(--textalign-adpoph1);
+    font-weight: var(--textweight-adpoph1);
+  }
+  .adPop p {
+    font-size: var(--fontsize-adpopp);
+    line-height: var(--lineheight-adpopp);
+    text-align: var(--textalign-adpopp);
+    font-weight: var(--fontweight-adpopp);
+  }
+
+  .img-position{
+    text-align: var(--textalign-imgposition);
+  }
+  .img-position img {
+    /* width: var(--width-adpopimg);
+    height: var(--height-adpopimg); */
+    max-width: 40%;
+    height: auto;
+  }
+  #lastMeter {
+    font-size: var(--fontsize-lastmeter);
+    line-height: var(--lineheight-lastmeter);
+    text-align: var(--textalign-lastmeter);
+    font-weight: var(--fontweight-lastmeter);
+  }
+  #img-position-fit {
+    max-width: 100%;
+    height: auto;
+  }
+  #img-position-fit-height {
+    max-height: 100%;
+    width: auto;
+  }
+
+  /*box全体*/
+  .gm-style-iw {
+    border: var(--border-px-gmstyleiw) solid　var(--cl-gmstyleiw-border);
+    border-radius: 3px;
+    background: var(--cl-gmstyleiw-background) !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  
+  /*box内部のエリア*/
+  .gm-style-iw-d {
+    border: var(--border-px-gmstyleiwd) solid var(--cl-gmstyleiwd-border);
+    border-radius: 3px !important;
+    background: var(--cl-gmstyleiwd-background);
+    overflow: hidden !important;
+    margin: var(--margin-gmstyleiwd);
+  }
+  
+  /*クローズボタン*/
+  .gm-ui-hover-effect {
+    border-radius: 50%;
+    border: var(--border-px-gmuihovereffect) solid var(--cl-gmuihovereffect-border) !important;
+    opacity: 1;
+    background: var(--cl-gmuihovereffect-background) !important;
+    /* 2021.05.18*/
+    /* width: 25% !important; */
+    /* height: 12.5% !important; */
+    width: var(--width-gmuihovereffect) !important;
+    height: var(--height-gmuihovereffect) !important;
+  
+    display:flex !important;
+    justify-content: center;
+    align-items: center;
+  
+    transform: translate(7px, -7px);
+  }
+  /*クローズボタンのサイズ*/
+  .gm-ui-hover-effect::hover {
+    width: 25px;
+    height: 25px;
+  }
+  /*boxの吹き出しの矢印部分*/
+  .gm-style-iw-t::after{
+    background: var(--cl-gmstyleiwtafter-background) !important;
+    z-index: -999;
+  }
+  
+  /* Pre-defined values */
+  
+  /* Pattern 001 */
+  .adPop-gmstyleiw-001 {
+    border: 3px solid　#af8baf;
+    background: #af8baf !important;
+  }
+  .adPop-gmstyleiwd-001 {
+    border: 1px solid #f6acc8;
+    background: #f6acc8;
+  }
+  .adPop-adpop-001 {
+    /* background-color: brown; */
+    border: 2px solid #584153;
+    /* color:  #26191b; */
+  }
+  .adPop-gmuihovereffect-001 {
+    border: 1px solid #584153 !important;
+    background: #af8baf !important;
+  }
+  .adPop-gmstyleiwt-001 {
+    background: #af8baf !important;
+  }
+  
+  /* Pattern 002 */
+  .adPop-gmstyleiw-002 {
+    border: 3px solid　#edffec;
+    background: #edffec !important;
+  }
+  .adPop-gmstyleiwd-002 {
+    border: 1px solid #caf7e3;
+    background: #caf7e3;
+  }
+  .adPop-adpop-002 {
+    /* background-color: brown; */
+    border: 2px solid #f6dfeb;
+    /* color:  #e4bad4; */
+  }
+  .adPop-gmuihovereffect-002 {
+    border: 1px solid #f6dfeb !important;
+    background: #edffec !important;
+  }
+  .adPop-gmstyleiwt-002 {
+    background: #edffec !important;
+  }
+  
+  /* Pattern 003 */
+  .adPop-gmstyleiw-003 {
+    border: 3px solid　#b8b5ff;
+    background: #b8b5ff !important;
+  }
+  .adPop-gmstyleiwd-003 {
+    border: 1px solid #e4fbff;
+    background: #e4fbff;
+  }
+  .adPop-adpop-003 {
+    /* background-color: brown; */
+    border: 2px solid #7868e6;
+    /* color:  #edeef7; */
+  }
+  .adPop-gmuihovereffect-003 {
+    border: 1px solid #7868e6 !important;
+    background: #b8b5ff !important;
+  }
+  .adPop-gmstyleiwt-003 {
+    background: #b8b5ff !important;
+  }
+  
+  /* 2021.03.09 start */
+  
+  footer {
+    position      : absolute;
+    width         : 100%;
+    height        : 15px;
+    bottom        : 0;
+    background    : #eeeeee;
+    border-top    : 1px solid #999999;
+    padding       : 5px;
+    overflow      : hidden;
+  }
+  
+  .map_frame {
+    position      : absolute;
+    top           : 0;
+    bottom        : 0;
+    width         : 100%;
+    margin-bottom : 15px;/* フッターの高さ */
+  }
+  
+  .boxContainer{
+    overflow: hidden;
+  }
+  
+  .boxFooter1{
+    /* justify-content: center; */
+    /* text-align: center; */
+    float: right;
+    font-size: 8px;
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+  .boxFooter2{
+    float: right;
+    /* text-align: center; */
+    margin-right: 20px;
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  .boxFooter3{
+    float: right;
+    /* text-align: center; */
+    margin-right: 20px;
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  .boxFooter4{
+    float: right;
+    /* text-align: center; */
+    margin-right: 20px;
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  
+/* 2022.01.16 */
+/* These are for spot's inforwindow and buttons. */
+.info_div {
+  background-color: var(--cl-adpop-background);
+  /* border: var(--border-px-adpop) solid var(--cl-adpop-border); */
+  color: #424242;
+  /* color: var(--cl-adpop-color); */
+  line-height: var(--lineheight-adpop);
+  /* justify-content: center;*/
+  text-align: center;
+  /* width: 160px;
+  height: 80px; */
+  line-height:1em;
+  margin-top: -0.5em
+}
+
+/* .info_div p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-break: break-all;  
+} */
+
+.info_button {
+  background-color: #FFF5E1;
+  color: #424242;
+  align-items: center;
+  margin: 0px 2px;
+  /* margin-left: 1px;
+  margin-right: 1px; */
+  font-size: 14px;
+  float: center;
+  padding:0em 0.5em;
+  /* padding-top: 0.5em; */
+  /* padding-bottom: 0.5em; */
+  /* display:flex;
+  justify-content: center; */
+  text-align:center;
+}
+
+.info_button3 {
+  background-color: #e1ffe7;
+  color: #424242;
+  align-items: center;
+  margin: 0px 0px;
+  /* margin-left: 1px;
+  margin-right: 1px; */
+  font-size: 14px;
+  float: center;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 1px;
+  padding:0em 0.5em;
+  /* padding-top: 0.5em;
+  padding-bottom: 0.5em; */
+  /* display:flex;
+  justify-content: center; */
+  text-align:center;
+}
+
+.adPop_manual {
+  background-color: var(--cl-adpop-background);
+  /* border: 2px solid var(--cl-adpop-border); */
+  border: var(--border-px-adpop) solid var(--cl-adpop-border);
+  color: var(--cl-adpop-color);
+  line-height: var(--lineheight-adpop);
+  /* width: 100px;
+  height: 200px; */
+  width: var(--width-adpop);
+  height: var(--height-hadpop);
+}
+.adPop_manual h1 {
+  font-size: var(--fontsize-adpoph1);
+  line-height: var(--lineheight-adpoph1);
+  text-align: var(--textalign-adpoph1);
+  font-weight: var(--textweight-adpoph1);
+}
+.adPop_manual p {
+  font-size: var(--fontsize-adpopp);
+  line-height: var(--lineheight-adpopp);
+  text-align: var(--textalign-adpopp);
+  font-weight: var(--fontweight-adpopp);
+}
+

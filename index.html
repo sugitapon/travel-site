@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NaviNaviMap</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="styleBS.css" />
+    <link rel="stylesheet" type="text/css" href="modal.css" />
+    
+    <link href="images/favicon.ico" rel="shortcut icon" type="favicon.ico">
+    <script src="aceperio_src01.js"></script>
+    <script src="aceperio_src02.js"></script>
+    <script src="aceperio_src03.js"></script>
+    <script src="aceperio_src04.js"></script>
+    <script src="aceperio_src05.js"></script>
+    <script src="aceperio_src06.js"></script>
+    <script src="aceperio_src08.js"></script>
+    <script src="aceperio_src09.js"></script>
+    <script src="aceperio_src11.js"></script>
+
+    <meta name="google-site-verification" content="O5U5A2FX9LQuv9FUbhTOjiCDg01n1ltUVAJ3q-LcriA" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2F861VSL2F"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-2F861VSL2F');
+    </script>
+
+</head>
+  <body>
+
+    <!-- <div class="demo-container">
+      <div class="modal-control">
+          <p id="quote"></p>
+          <button type="button">Edit Value</button>
+      </div>
+  </div>
+  <script src="modal_app.js"></script> -->
+
+    
+
+    <!-- <div id="distdura" class="distdura">
+    </div> -->
+
+
+    <div class="map_frame">
+
+    <!-- 2023.02.18 for Modal Screen : Start -->
+    <div class="container_modal" id="container_modal">
+      <dip class="popup_modal" id="popup_modal">
+        <img id="modal_img_01">
+        <p id="modal_desc_01"></p>
+        <button type="submit" class="btn" onclick="openPopup(1)">OK</button>
+      </dip>
+      <dip class="popup_modal" id="popup_modal2">
+        <img id="modal_img_02">
+        <p id="modal_desc_02"></p>
+        <button type="submit" class="btn" onclick="openPopup(2)">OK</button>
+      </dip>
+      <dip class="popup_modal" id="popup_modal3">
+        <img id="modal_img_03">
+        <p id="modal_desc_03"></p>
+        <button type="submit" class="btn" onclick="closePopup()">OK</button>
+      </dip>
+      <script src="aceperio_src10.js"></script>
+    </div>
+    <!-- 2023.02.18 for Modal Screen : End -->
+
+    <div id="controls" class="box">
+      <!-- <label id="routeText" class="before">ルート</label> -->
+      <select id="courseSelect" class="after"></select>
+      <select id="languageSelect" class="after"></select>
+    </div>
+
+    <div id="map"></div>
+    <!-- <div id="pano"></div> -->
+
+      <!-- クッキー -->
+      <div class="cookie-container">
+          <p>
+              当サイトでは、サイトや広告を改善するためにCookieを利用します。サイトを利用することでCookieの使用に同意するものとします。
+              <a href="privacyPolicy.html">プライバシーポリシー</a>
+          </p>
+          <button class="cookie-btn">
+              OK
+          </button>
+      </div>
+      <script src="aceperio_src07.js"></script>
+    </div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvvvMrgFDkhC8oKt_SkF82wA8v7VZbUMw&callback=initMap&libraries=&v=weekly"
+      async
+    ></script> -->
+    <script type="text/javascript">
+      var scriptTag = document.createElement('script');
+      var currentLang = window.localStorage && window.localStorage.getItem('language');
+      var apikey = window.localStorage && window.localStorage.getItem('apikey');
+      var scriptSrc = 'https://maps.googleapis.com/maps/api/js?key='+ apikey+'&callback=initMap&libraries=&v=weekly';
+      if (currentLang)
+          scriptSrc = 'https://maps.googleapis.com/maps/api/js?key='+ apikey+'&language=' + currentLang + '&callback=initMap&libraries=&v=weekly';
+  
+      scriptTag.setAttribute('src', scriptSrc);
+      scriptTag.setAttribute('async', '');
+      document.head.appendChild(scriptTag);
+  </script>
+
+    <!-- 2021.03.09 11:23 Start-->
+    <footer>
+      <div class="boxContainer">
+        <div class="boxFooter1"><a href="disclaimer.html" target="_blank" rel="noopener noreferrer">免責事項</a></div>
+        <div class="boxFooter2"><a href="privacyPolicy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a></div>
+        <!-- <div class="boxFooter4"><a href="help.html" target="_blank" rel="noopener noreferrer">ヘルプ</a></div> -->
+        <div class="boxFooter3">©︎navinavimap.com 2021 All Rights Reserved.</div>
+      </div>
+  </footer>
+<!-- 2021.03.09 11:23 End -->
+
+
+  </body>
+</html>
