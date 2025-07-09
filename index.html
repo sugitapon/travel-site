@@ -7,20 +7,24 @@
     <title>NaviNaviMap</title>
     <!-- //2025.07.09 Comment out below one line.
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script> -->
+ <!-- JSによる簡易パスワードロック -->
+ <script>
+  (function() {
+    const password = prompt("Enter password:");
+    if (password !== "your-secret-password") {
+      alert("Access denied.");
+      document.body.innerHTML = "Unauthorized access.";
+      throw new Error("Access denied");
+    }
+  })();
+</script>
+
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" type="text/css" href="styleBS.css" />
     <link rel="stylesheet" type="text/css" href="modal.css" />
     
     <link href="images/favicon.ico" rel="shortcut icon" type="favicon.ico">
 
-    <script>
-      const password = prompt("Enter password:");
-      if (password !== "your-secret-password") {
-        alert("Access denied.");
-        document.write("Unauthorized");
-        throw new Error("Unauthorized");
-      }
-    </script>
     
     <script src="aceperio_src01.js"></script>
     <script src="aceperio_src02.js"></script>
