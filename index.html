@@ -12,6 +12,16 @@
     <link rel="stylesheet" type="text/css" href="modal.css" />
     
     <link href="images/favicon.ico" rel="shortcut icon" type="favicon.ico">
+
+    <script>
+      const password = prompt("Enter password:");
+      if (password !== "your-secret-password") {
+        alert("Access denied.");
+        document.write("Unauthorized");
+        throw new Error("Unauthorized");
+      }
+    </script>
+    
     <script src="aceperio_src01.js"></script>
     <script src="aceperio_src02.js"></script>
     <script src="aceperio_src03.js"></script>
